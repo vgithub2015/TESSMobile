@@ -1,0 +1,28 @@
+<ion-view view-title="Role Management" name="dashboard-view">
+<ion-nav-title><img src= "img/tessLogo.png"></ion-nav-title>
+
+
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> Projects </h4>
+</ion-header-bar>
+  <ion-content class="padding" ng-controller="MultipleProjectsCtrl" >
+    <br>
+    <br>
+    <br>
+    <br>
+    <label class="item item-input item-select">
+      <div class="input-label">
+          Project
+      </div>
+      <select id="mProject" ng-model="mProject" ng-options="item as item.projectName for item in mProjectList">
+         <option value="">Select Project</option>
+      </select>
+    </label>
+    <br>
+    <button class="button button-block button-positive" ng-click="mprojects()">Submit</button>
+    <br>
+    <br>
+    <div id="loading-bar-container"></div>
+
+  </ion-content>
+</ion-view>

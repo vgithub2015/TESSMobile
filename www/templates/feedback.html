@@ -1,0 +1,41 @@
+<ion-view view-title="Feedback" name="dashboard-view">
+<ion-nav-title><img src= "img/tessLogo.png"></ion-nav-title>
+
+
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> Feedback</h4>
+</ion-header-bar>
+  <ion-content class="padding">
+
+         
+
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="text" id="subject" placeholder="Subject" ng-model="feedback.subject">
+
+          </label>
+         </div>
+
+
+      <div class="row list list-inset" > 
+      <div class="col col-30"> <ion-radio id ="issueCB" ng-model="user.issue">issue</ion-checkbox></div>
+      <div class="col col-70"> <ion-radio id="feedbackCB"ng-model="user.feedbacks" disabled =true>feedback</ion-checkbox></div>
+           
+     </div>
+
+
+     <div class="list list-inset">
+    	<label class="item item-input">
+             <textarea name="comment" id="bodyEmail" placeholder="Comments" ng-model="feedback.comments" rows="8" cols="15"> </textarea>
+          </label>
+      </div>
+      <br>
+      <div class="row"> 
+      
+      <div class="col col-50"><button class="button button-block button-positive" ng-click ="cancelFeedback(user)">Reset</button></div><div class="col col-50"><button class="button button-block button-positive" ng-click="submitFeedback()">Submit</button> </div>     
+    </div>
+        
+  </ion-content>
+
+
+</ion-view>

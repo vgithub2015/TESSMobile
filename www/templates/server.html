@@ -1,0 +1,76 @@
+<ion-view view-title="TESS" name="dashboard-view">
+<ion-nav-title align-="center" ><img src= "img/tessLogo.png" >
+  </ion-nav-title>
+<!-- <ion-nav-bar align-title="center"><img src= "img/tessLogo.png" ></ion-nav-bar> -->
+<ion-header-bar class ="bar bar-subheader" align ="center">
+<h4> Scripts </h4> 
+
+</ion-header-bar>
+	<div class="bar bar-subheader 
+	  item-input-inset bar-light">
+	  <label class="item-input-wrapper">
+		<i class="icon ion-search placeholder-icon"></i>
+		<input type="search" ng-model="query" placeholder="Search Scripts">
+	  </label>
+	</div>	
+  <!--<ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+  </ion-nav-buttons> -->
+  <ion-content class="has-subheader">
+  <ion-refresher pulling-text="Pull To Refresh..." 
+					 on-refresh="doRefresh()"> 
+				 </ion-refresher>	
+		  
+	<!-- <div ng-controller="ServerCtrl"> -->
+	<!-- <button type="button" class = "bottom-right button button-full button-assertive" ng-click="loadData()" align="bottom-right">Service Call</button> -->
+	<body>
+	<ion-list ng-init="loadData()">
+	<ion-item ng-repeat="item in items |filter:query" ng-style= "{'min-height':'30px'}">
+	<table width="75%">
+		<tr>
+		<td rowspan="2" width="20%">
+
+		<button ng-show="!loading[$index]"  value= "model_{{item}}" ng-click="loadDataList('{{item}}',$index,'{{item.name}}')" class="button button-light button-small button-clear  button-positive" ng-disabled='{{buttonDisable}}'>
+	 			<i class='icon ion-play' ng-disabled='{{buttonDisable}}'></i>  
+	 			</button>
+<button  ng-show="loading[$index]" value= "Loading" ng-click="loadDataList('{{item}}',$index,'{{item.name}}')" class="button button-light button-small button-clear button-positive" 
+	 			>
+	 			<i class='icon ion-load-d' ng-disabled="{{buttonDisable}}"></i> 
+	 			</button> 
+
+
+	 	</td>
+		<td  style="padding-bottom: 5px"><h4><B>{{item.name}}</B></h4></td>
+		</tr>
+		<tr><td class="font-style:italic"><h5><em>{{item.description}}</em></h5></td></tr>
+	</table>
+	
+		</ion-item>
+
+	</ion-list>
+
+ <!-- <ion-refresher on-refresh="loadData()"> -->
+      <!-- </ion-refresher> -->
+ 
+<!-- <ion-infinite-scroll
+on-infinite="loadData()"
+distance="1%">
+</ion-infinite-scroll>
+ -->		
+
+ 	
+
+ 
+<!-- 	<ion-list>
+	<ion-item ng-repeat="item in itemsList">
+		{{item[0]}}
+		
+		
+		</ion-item>
+	</ion-list>
+ 	 -->
+		
+	<!-- </div> -->
+	</body>
+  </ion-content>
+</ion-view>

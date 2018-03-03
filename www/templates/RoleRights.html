@@ -1,0 +1,48 @@
+<ion-view view-title="T4" name="dashboard-view">
+<ion-nav-title><img src= "img/tessLogo.png"></ion-nav-title>
+
+
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> Role Rights </h4>
+</ion-header-bar>
+  <ion-content class="padding" ng-controller="RoleRightsCtrl">
+     <!-- This is Role Management  -->
+     <br/>
+     <label class="item item-input item-select">
+      <div class="input-label">
+          Project
+      </div>
+      <div >
+        <select id="sProject" ng-model="RoleRights.project" ng-change="rmOnProjectChange()"  ng-options="item as item.projectName for item in ProjectList">
+         <option value="">Select Project</option>
+      </select>
+      </div>
+    </label>
+    <br/>
+    <label class="item item-input item-select">
+      <div class="input-label">
+          Roles
+      </div>
+      <div >
+        <select id="rrRoles" ng-model="RoleRights.Role" ng-change="rrOnRoleChange()" ng-options="item as item.roleName for item in ProjectRolesList">
+         <option value="">Select Role</option>
+        </select>
+      </div>
+    </label>
+
+    <br/>
+
+    <div class="list" >
+        <div class="item item-divider"> 
+          Screens
+        </div>
+        <ion-toggle ng-repeat="item in screenRights"
+                    ng-model="item.selected" 
+                    ng-checked="item.selected"
+                    ng-change="rrOnRoleRightsChange(item)">
+          {{ item.screenName }}
+        </ion-toggle>
+      </div>
+
+  </ion-content>
+</ion-view>

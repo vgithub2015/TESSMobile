@@ -1,0 +1,45 @@
+<ion-view view-title="Logs" name="dashboard-view">
+<ion-nav-title><img src= "img/tessLogo.png" ></ion-nav-title>
+
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> Logs </h4>
+</ion-header-bar>
+  <ion-content class="padding">
+     <div class="row"><div class="col text-center">
+      <h4 class="title"></h4>
+      </div></div>
+    
+      <ion-refresher on-refresh="doRefresh()">
+      </ion-refresher>
+
+    <ion-list>
+  <ion-item ng-repeat="item in items" ng-class="$index%2 == 0 ? 'item-content' : ''">
+    <div> <!-- ng-click="displayLogDetails(items.suitRunLogId)"> -->
+      <!-- <h3 class="icon ion-record balanced"><B><a ng-href="#/main/public/LogDetails/{{item.suitRunLogId}}">{{item.suiteName}}</a></B></h2>   -->
+	
+	<div ng-if="item.failCount > 0">
+	 <h3  class="icon ion-record assertive"><B><a ng-href="#/main/public/LogDetails/{{item.suitRunLogId}}"> {{item.suiteName}}</a></B></h2>
+	 </div>
+	 
+	 <div ng-if="item.failCount == 0 && item.passCount == 0">
+	 <h3 class="icon ion-record energized"><B><a ng-href="#/main/public/LogDetails/{{item.suitRunLogId}}"> {{item.suiteName}}</a></B></h2>
+	 </div>
+	 
+	<div ng-if="item.failCount == 0 && item.passCount > 0">	 
+	 <h3 class="icon ion-record balanced"><B><a ng-href="#/main/public/LogDetails/{{item.suitRunLogId}}"> {{item.suiteName}}</a></B></h2>
+	 </div>
+	 
+	
+    <br> 
+    <h4><B>Pass: {{item.passCount}}  &nbsp &nbsp &nbsp &nbsp Fail: {{item.failCount}}  &nbsp &nbsp &nbsp &nbsp Skiped: {{item.skipCnt}}&nbsp &nbsp &nbsp &nbsp</B></h4>
+    <h4><i><B>Executed Time : {{item.createdDt| date:"MM/dd/yyyy 'at' h:mma"}}</i></h4>
+
+    
+    <!-- <div class="col text-right">
+    <button  class= "button button-light button-small icon ion-ios-briefcase button-clear button-balanced" name="trigger" ></button>
+    </div> -->
+    </div>
+    </ion-item>
+  </ion-list>
+  </ion-content>
+</ion-view>

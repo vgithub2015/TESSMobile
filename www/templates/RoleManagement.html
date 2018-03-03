@@ -1,0 +1,42 @@
+<ion-view view-title="Role Management" name="dashboard-view">
+<ion-nav-title><img src= "img/tessLogo.png"></ion-nav-title>
+
+
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> Roles Management </h4>
+</ion-header-bar>
+  <ion-content class="padding" ng-controller="RolesManagementCtrl" >
+     <!-- This is Role Management  -->
+     <br/>
+     <label class="item item-input item-select">
+      <div class="input-label">
+          Project
+      </div>
+      <select id="sProject" ng-model="RolesManagement.project" ng-change="rmOnProjectChange()"  ng-options="item as item.projectName for item in ProjectList">
+         <option value="">Select Project</option>
+      </select>
+    </label>
+    <br/>
+    <label class="item item-input item-select">
+      <div class="input-label">
+          Entity/Action
+      </div>
+      <select id="sProject" ng-model="RolesManagement.action"  ng-options="item as item.rightName for item in ActionsList">
+         <option value="">Select Actions</option>
+      </select>
+    </label>
+    <br/>
+  <div class="col text-right">
+  <button class="button button-positive" ng-click="Addrole()"  >Add Role</button>
+  </div>
+  <br/>
+  <div class="list" >
+      <div class="item item-divider"> 
+        Roles
+        </div >
+    <ion-list ng-repeat="item in ProjectRolesList" class="item"   >
+         {{ item.roleName }}
+    </ion-list>
+  </div>
+  </ion-content>
+</ion-view>

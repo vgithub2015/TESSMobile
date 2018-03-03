@@ -1,0 +1,57 @@
+<ion-view view-title="TESS" name="UserSearch-view">
+<ion-nav-title align-="center" ><img src= "img/tessLogo.png" ></ion-nav-title>
+<!-- <ion-nav-bar align-title="center"><img src= "img/tessLogo.png" ></ion-nav-bar> -->
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> Search User </h4>
+</ion-header-bar>
+  <!--<ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+  </ion-nav-buttons> -->
+  
+  
+ 
+  <ion-content class="padding">
+     <div class="row"><div class="col text-center">
+      </div></div>
+    
+      <!-- <ion-refresher on-refresh="doRefresh()">
+      </ion-refresher> -->
+
+<ion-item>
+  <!-- <h5><b><ion-label primary stacked>User Name</ion-label></b></h5> -->
+   <!-- <h5><b><ion-input type="text" placeholder= "  Input"></ion-input> </b></h5>
+    -->
+
+
+<!--      <h5><b><ion-label primary stacked>User Name</ion-label></b></h5> -->
+    <ion-input type="email" placeholder="Email Input"></ion-input>
+    <input type="text" id="Username" placeholder="Enter User Name" ng-model="data.username">
+</ion-item>
+	<br>
+
+    <div id="divUsers">
+    <ion-list>
+	  <ion-item>
+	    <div> <!-- ng-click="displayLogDetails(items.suitRunLogId)"> -->
+		    <h3><B><a>Basker, Karthik</a></B></h3>
+		    <h4>kbasker@deloitte.com</h4>
+	    </div>
+	    </ion-item>
+	    <ion-item>
+	    <div> <!-- ng-click="displayLogDetails(items.suitRunLogId)"> -->
+		    <h3><B><a>Baskeran, Karthik</a></B></h3>
+		    <h4>kbaskeran@deloitte.com</h4>
+	    </div>
+	    </ion-item>
+	    <ion-item>
+	    <div> <!-- ng-click="displayLogDetails(items.suitRunLogId)"> -->
+		    <h3><B><a>Basker, Karthik N</a></B></h3>
+		    <h4>knbasker@deloitte.com</h4>
+	    </div>
+	    </ion-item>
+	  </ion-list>
+	</div>
+	<ion-input type="text" placeholder=" Input"></ion-input>
+    
+  </ion-content>
+</ion-view>

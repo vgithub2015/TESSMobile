@@ -1,0 +1,69 @@
+/* Empty. Add your own CSS if you like */
+
+.menu-animated {
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    transition-duration: 300ms;
+}
+
+ion-radio {
+     height:4px; 
+     width: :5px;
+     font-size: 4px;
+  	 line-height: 4px;
+}
+
+
+.item-content {
+  background-color:#e6f0ff;
+}
+
+
+
+.item-passed {
+  background-color:#e6ffe6;
+}
+
+.item-failed {
+  background-color:#ffcccc;
+}
+
+.item-skipped {
+  background-color:#ffffb3;
+}
+
+
+.item-pass {
+  color:#00e600;
+}
+
+.item-fail {
+  color:#ff3300;
+}
+
+.item-skip {
+  color:#66a3ff;
+}
+
+.my-menu {  
+background-color: #1C2F2F;
+}
+
+.my-menu .scroll {
+  background-color: transparent;
+}
+
+.my-menu .list {
+  background-color: transparent;
+}
+
+.my-menu .item, .my-menu .item-content, .my-menu .item-complex{
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: #A9A9A9;
+}
+
+.title
+{ 
+  color: #ffffb3; 
+}

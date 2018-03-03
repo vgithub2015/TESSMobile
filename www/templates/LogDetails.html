@@ -1,0 +1,33 @@
+<ion-view view-title="Logs" name="dashboard-view">
+<ion-nav-title class="title">SQA-Mobile</ion-nav-title>
+<ion-nav-bar class="bar-stable">
+
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> Logs </h4>
+</ion-header-bar>
+
+  <ion-content class="padding">
+  <a ng-href="#/main/public">Back</a>
+     <div class="row"><div class="col text-center">
+      <h4 class="title"></h4>
+      </div></div>
+    
+      <ion-refresher on-refresh="doRefresh()">
+      </ion-refresher>
+
+    <ion-list>
+  <ion-item ng-repeat="item in items" ng-class="item.statusCd == 'Pass' ? 'item-passed' : ''">
+  
+    
+
+    <h4><B>Suite: {{item.suiteDesc}} </i></h4>
+    <h4><B>Test Case: {{item.methodName}} </i></h4>
+    <h4><B>Created: {{item.createdBy}} </i></h4>
+    <h2 ng-class="item.statusCd == 'Pass' ? 'item-pass' : (item.statusCd == 'Skip' ? 'item-skip':'item-fail')"><B>{{item.statusCd}} </i></h4>
+    <!-- <div class="col text-right">
+    <button  class= "button button-light button-small icon ion-ios-briefcase button-clear button-balanced" name="trigger" ></button>
+    </div> -->
+    </ion-item>
+  </ion-list>
+  </ion-content>
+</ion-view>

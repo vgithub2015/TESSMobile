@@ -1,0 +1,116 @@
+
+<body ng-controller="MainCtrl">
+<ion-side-menus enable-menu-with-back-views="false">
+
+	  <ion-side-menu-content edge-drag-threshold="true" drag-content="true">
+	    <ion-nav-bar class="bar-stable">
+           <ion-nav-buttons side="left">
+	        <button class="button button-icon button-clear button-positive ion-navicon" menu-toggle="left" >
+			</button>
+			</ion-nav-buttons>
+  			<ion-nav-buttons side="right">
+				<button class="button button-icon button-clear button-positive ion-log-out" ng-click="logout()"></button>
+			</ion-nav-buttons>
+  </ion-nav-bar>
+
+<ion-view>
+
+  <ion-tabs class = "tabs-icon-top tabs-positive">
+        <ion-tab title="Scripts" icon="ion-earth" href="#/main/dash">
+      <ion-nav-view name="dash-tab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab id="Logs" disabled="pageFlow.LogsTab"  title="Logs" icon="ion-ios-pulse" href="#/main/public">
+      <ion-nav-view name="public-tab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab id="Stats" disabled="pageFlow.StatsTab"  title="Stats" icon="ion-stats-bars" href="#/main/admin">
+      <ion-nav-view name="admin-tab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab id="FeedbackTab" disabled="pageFlow.FeedbackTab" title="Feedback" icon="ion-email" href="#/main/feedback">
+       <ion-nav-view name="feedback-tab"></ion-nav-view>
+     </ion-tab>
+	  <ion-tab  id="Admin" disabled="pageFlow.AdminTab"  title="Admin" icon="ion-nuclear" >
+      <ion-nav-view name="new-tab"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
+  </ion-side-menu-content>
+	   <!-- Side Menu (left) -->
+	<ion-side-menu side="left">
+        <header class="bar bar-header bar-stable bar-positive">
+        <button
+            ng-show="submenu"
+            ng-click="backToMain()"
+            class="button button-clear icon ion-chevron-left"
+          > Back</button>
+        	<h1 class="title">Menu</h1>
+        </header>
+        <!-- <ion-header-bar class="bar-positive">
+	      <h1 class="title">Menu</h1>
+	    </ion-header-bar> -->
+        <ion-content class="has-header my-menu">
+          <div
+            ng-switch on="selection"
+            class="slide-right-left"
+            ng-class="{reverse: submenu}">
+            <div ng-switch-default>
+              <ion-list>
+	                <ion-item menu-close  href="#/main/dash">
+                    <i class="icon ion-earth"></i>
+                  <span>Scripts</span>
+              </ion-item>
+		        	</ion-item>
+		        	<ion-item ng-hide="pageFlow.LogsTab" menu-close href="#/main/public">
+              <i class="icon ion-ios-pulse"></i>
+		          		<span>Logs</span>
+		        	</ion-item>
+		        	<ion-item ng-hide="pageFlow.StatsTab" menu-close href="#/main/admin">
+              <i class="icon ion-stats-bars"></i>
+              <span>Stats</span>		          		
+		        	</ion-item>
+		        	<ion-item ng-hide="pageFlow.FeedbackTab" menu-close href="#/main/feedback">
+               <i class="icon ion-email"></i>
+              <span>Feedback</span>  		          		
+		        	</ion-item>
+              <ion-item ng-hide="pageFlow.FeedbackTab" menu-close href="#/main/Projects">
+               <i class="icon ion-arrow-swap"></i>
+              <span>Projects</span>                   
+              </ion-item> 
+			  
+	            <ion-item ng-hide="pageFlow.AdminTab" menu-close ng-click="openSub('sub')">
+                <i class="icon ion-nuclear"></i>
+                <span>Admin</span>       
+  	          </ion-item>
+              <ion-item menu-close  ng-click="logout()">
+                    <i class="ion-log-out"></i>
+              <span>Logoff</span>  
+                  </ion-item>
+              </ion-list>
+            </div>
+            <!-- /Default list -->
+            <div ng-switch-when="sub">
+            <!-- <ion-header-bar >
+	      <h1 class="title">Admin</h1>
+	    </ion-header-bar> -->
+              <ion-list>
+		          <ion-item menu-close href="#/main/RoleManagement">
+                 <i class="ion-clipboard"></i>
+              <span>Roles Management</span>
+			        </ion-item>
+		          <ion-item menu-close href="#/main/RoleRights">
+                <i class="ion-key"></i>
+              <span>Role Rights</span>
+			        </ion-item>
+			        <ion-item menu-close href="#/main/UserRoles">
+               <i class="ion-person-stalker"></i>
+              <span>User Roles</span> 			          
+			        </ion-item>
+			       <!--  <ion-item menu-close href="#/main/UserSearch">
+			          	User Search
+			        </ion-item> -->
+              </ion-list>
+            </div>
+          </div>
+        </ion-content>
+      </ion-side-menu>
+    </ion-side-menus>
+</body>

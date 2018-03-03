@@ -1,0 +1,58 @@
+<ion-view view-title="UserRoles" name="dashboard-view">
+<ion-nav-title><img src= "img/tessLogo.png"></ion-nav-title>
+<ion-header-bar class ="bar bar-subheader bar-light" align ="center">
+<h4> User Roles </h4>
+</ion-header-bar>
+  <ion-content class="padding">
+     <!-- This is Role Management class="col col-85"  -->
+    <br/>
+    <div ng-controller="ServiceCtrl">
+      <div class="row">
+        <div class="col col-90" >
+          <label class="item item-input" width="90%">
+             <div class="input-label">
+                Search
+             </div>
+             <input type="text" id="txtUserName" ng-model="userRole.UserName" placeholder="Last Name" >
+           </label>
+        </div>
+        <div class="col col-0">
+              <button class="icon ion-eye button button-positive" ng-click="reloadUsers()" modal-select="" ng-model="userRoleUserselect" options="usersList" modal-title="Select a user" header-footer-class="bar-positive" has-search="true" sub-header-class="bar-positive" on-select="shoutLoud(newValue, oldValue)">
+                <div class="option">
+                  {{option.userName}}
+                </div>
+              </button>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+      <div class="col col-90" >
+        <label class="item item-input item-select">
+          <div class="input-label">
+              Project
+          </div>
+            <select id="sProject" ng-model="userRole.userProjectList" ng-change="urOnProjectChange()"  ng-options="item as item.projectName for item in userProjectList">
+             <option value="">Select Project</option>
+            </select>
+        </label>
+        </div>
+        <div class="col col-0">
+            <button class="icon ion-disc button button-positive" ng-click="loadAllProjects()" ></button>
+        </div>
+      </div>
+      <br/>
+      <div class="list" type="radio"  >
+        <div class="item item-divider"> 
+          Roles
+        </div>
+        <ion-radio   ng-repeat="item in ProjectRolesList "
+                      ng-model="selectedUserRoles.userRole"
+                      ng-value ="item.selected"
+                      ng-change="OnSaveRoleChange(item)"
+                      >
+          {{ item.roleDesc }}
+        </ion-radio >
+      </div>
+    </div>  
+  </ion-content>
+</ion-view>
